@@ -26,6 +26,31 @@ We see in Docker Desktop the PostgreSQL container running, the corresponding doc
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/728d92a7-b253-49c9-9a08-2d22d7a89786)
 
+We enter in the PosgreSQL container we run the following command:
+
+```
+docker exec -it postgres psql -U docker -d rtjvm
+```
+
+To list the available database we run the command:
+
+```
+\l
+```
+
+ To list the tables in the "rtjvm" database we run the command:
+
+```
+\dt
+```
+
+We can see the rows in the "departments" table:
+
+```
+select * from departments;
+```
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/07554b78-654d-4b6f-bd6b-634796cead66)
 
 
 
