@@ -58,8 +58,6 @@ We are going to run pgAdmin 4 to see the database and tables in the PostgreSQL d
 
 We run pgAdmin 4 
 
-![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/8434ba81-53c1-42fd-8b68-6dedaf5d044c)
-
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/05c5c639-95ef-4a87-9ba7-86069c53c9c4)
 
-
+Now we create a 
