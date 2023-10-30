@@ -69,3 +69,12 @@ We input the new Server data
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/b89014ba-9702-4971-8ae5-5aecaca60844)
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/ed9a05ec-aeda-41fc-9970-2eeb2d770cfb)
+
+We can see a new Server was added in the tree
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/60ace434-e9c0-43e3-971d-ea856d4aeef6)
+
+If we expand the new server tree we can see the new database "rtjvm" and tables inside
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/7baf7839-d4ac-447e-afe7-958b658f525f)
+
