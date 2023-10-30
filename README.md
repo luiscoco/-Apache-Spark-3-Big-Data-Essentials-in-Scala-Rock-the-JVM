@@ -60,4 +60,7 @@ We run pgAdmin 4
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/05c5c639-95ef-4a87-9ba7-86069c53c9c4)
 
-Now we create a 
+Now we register a new Server
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/0c254a82-9cc8-4436-8741-d22a74d597b1)
+
