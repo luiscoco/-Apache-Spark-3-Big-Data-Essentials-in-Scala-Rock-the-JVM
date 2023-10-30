@@ -1,12 +1,12 @@
 # Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM
 
-# Install Docker Desktop on Windows
+## Install Docker Desktop on Windows
 
 
-# Install IntelliJ Community and install Scala plugin
+## Install IntelliJ Community and install Scala plugin
 
 
-# Run the PostgreSQL docker-compose file
+## Run the PostgreSQL docker-compose file
 
 We run the PosgreSQL docker container with the following command:
 
@@ -52,6 +52,14 @@ select * from departments;
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/07554b78-654d-4b6f-bd6b-634796cead66)
 
+## Run pgAdmin 4 
+
+We are going to run pgAdmin 4 to see the database and tables in the PostgreSQL docker container
+
+We run pgAdmin 4 
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/8434ba81-53c1-42fd-8b68-6dedaf5d044c)
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/05c5c639-95ef-4a87-9ba7-86069c53c9c4)
 
 
-# 
