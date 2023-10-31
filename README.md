@@ -276,19 +276,22 @@ ENV PYTHONHASHSEED 1
 
 Sets the PYTHONHASHSEED environment variable.
 
-### 5.3. 
+### 5.2. 
 
 ```
 docker build -t spark-master:latest ./docker/spark-master
 ```
 
-### 5.4. 
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/6f76396c-1cfb-4ae4-8c15-4053f0de9be8)
+
+
+### 5.3. 
 
 ```
 docker build -t spark-worker:latest ./docker/spark-worker
 ```
 
-### 5.5. 
+### 5.4. 
 
 ```
 docker build -t spark-submit:latest ./docker/spark-submit
