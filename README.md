@@ -1,12 +1,31 @@
 # Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM
 
-## Install Docker Desktop on Windows
+## 1. Install Docker Desktop on Windows
 
 
-## Install IntelliJ Community and install Scala plugin
+## 2. Install IntelliJ Community and install Scala plugin
 
 
-## Run the PostgreSQL docker-compose file
+## 3. Run the PostgreSQL docker-compose file
+
+This is the docker-compose.yml file source code:
+
+```yaml
+version: '2'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - "TZ=Europe/Amsterdam"
+      - "POSTGRES_USER=docker"
+      - "POSTGRES_PASSWORD=docker"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./sql:/docker-entrypoint-initdb.d"
+```
 
 We run the PosgreSQL docker container with the following command:
 
@@ -52,7 +71,7 @@ select * from departments;
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/07554b78-654d-4b6f-bd6b-634796cead66)
 
-## Run pgAdmin 4 
+## 4. Run pgAdmin 4 
 
 We are going to run pgAdmin 4 to see the database and tables in the PostgreSQL docker container
 
@@ -77,4 +96,6 @@ We can see a new Server was added in the tree
 If we expand the new server tree we can see the new database "rtjvm" and tables inside
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/7baf7839-d4ac-447e-afe7-958b658f525f)
+
+## 5. 
 
