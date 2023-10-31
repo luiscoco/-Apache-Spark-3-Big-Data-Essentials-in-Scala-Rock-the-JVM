@@ -131,6 +131,8 @@ If we expand the new server tree we can see the new database "rtjvm" and tables 
 
 ## 5. Build the Spark images
 
+### 5.1. 
+
 Run this command. In summary, this Docker command is building an image named "spark-base" with the tag "latest" using the Dockerfile and resources located in the ./docker/base directory.
 
 ```
@@ -268,15 +270,19 @@ ENV PYTHONHASHSEED 1
 
 Sets the PYTHONHASHSEED environment variable.
 
-
+### 5.3. 
 
 ```
 docker build -t spark-master:latest ./docker/spark-master
 ```
 
+### 5.4. 
+
 ```
 docker build -t spark-worker:latest ./docker/spark-worker
 ```
+
+### 5.5. 
 
 ```
 docker build -t spark-submit:latest ./docker/spark-submit
