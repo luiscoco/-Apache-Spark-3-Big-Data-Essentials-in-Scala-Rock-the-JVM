@@ -51,6 +51,22 @@ We enter in the PosgreSQL container we run the following command:
 docker exec -it postgres psql -U docker -d rtjvm
 ```
 
+This is a command that uses Docker to interact with a PostgreSQL container. Let's break it down:
+
+**docker exec**: This command allows you to run a command inside a running container.
+
+**-it**: These are options for interactive mode. -i stands for interactive, and -t allocates a pseudo-TTY. Together, they allow you to interact with the command you are running inside the container.
+
+**postgres**: This is the name or ID of the Docker container where you want to execute the command. In this case, it's assumed that there's a PostgreSQL container running with the name "postgres."
+
+**psql**: This is the PostgreSQL command-line tool. It's used for interacting with PostgreSQL databases.
+
+**-U docker**: This specifies the username to connect to the PostgreSQL database. In this case, it's set to "docker."
+
+**-d rtjvm**: This specifies the name of the PostgreSQL database to connect to. In this case, it's "rtjvm."
+
+So, in summary, this command is entering an interactive mode inside a running PostgreSQL Docker container named "postgres" and running the psql command to connect to the "rtjvm" database with the username "docker." This is useful for directly interacting with the PostgreSQL database inside the container.
+
 To list the available database we run the command:
 
 ```
