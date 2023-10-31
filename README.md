@@ -139,6 +139,8 @@ Run this command. In summary, this Docker command is building an image named "sp
 docker build -t spark-base:latest ./docker/base
 ```
 
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/f0c7de90-3ccb-4c7f-8d71-d91191bb6474)
+
 This command is using Docker, a platform for developing, shipping, and running applications in containers. Let me break down the command for you:
 
 **docker build**: This part of the command tells Docker to build an image. An image is a lightweight, standalone, and executable software package that includes everything needed to run a piece of software, including the code, a runtime, libraries, and system tools.
@@ -192,11 +194,12 @@ RUN wget --no-verbose https://archive.apache.org/dist/spark/spark-${SPARK_VERSIO
 # Note: this is needed when you use Python 3.3 or greater
 ENV PYTHONHASHSEED 1
 ```
-![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/f0c7de90-3ccb-4c7f-8d71-d91191bb6474)
 
-#### Dockerfile explanation
+### Dockerfile explanation
 
-This Dockerfile seems to be setting up an environment for running Apache Spark with PySpark support along with Scala and Python. Let's break it down step by step:
+This Dockerfile seems to be setting up an environment for running Apache Spark with PySpark support along with Scala and Python. 
+
+Let's break it down step by step:
 
 **Base Image**: It starts with a base image based on the Eclipse Temurin JDK version 17.
 
