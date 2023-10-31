@@ -139,7 +139,7 @@ Run this command. In summary, this Docker command is building an image named "sp
 docker build -t spark-base:latest ./docker/base
 ```
 
-![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/f0c7de90-3ccb-4c7f-8d71-d91191bb6474)
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/1aca77cc-801e-46c8-9492-20b3bd3c3012)
 
 This command is using Docker, a platform for developing, shipping, and running applications in containers. Let me break down the command for you:
 
@@ -291,9 +291,13 @@ docker build -t spark-master:latest ./docker/spark-master
 docker build -t spark-worker:latest ./docker/spark-worker
 ```
 
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/9c30d36c-0692-4c74-b77e-b97db1bb3baa)
+
 ### 5.4. 
 
 ```
 docker build -t spark-submit:latest ./docker/spark-submit
 ```
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/57041a03-ff1a-4909-bbe6-452be38e6271)
 
