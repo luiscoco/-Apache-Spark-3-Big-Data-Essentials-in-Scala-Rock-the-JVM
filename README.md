@@ -309,7 +309,7 @@ W
 
 ## 6. Running Spark docker images
 
-We run the command:
+### 6.1. We run the command docker-compose up
 
 ```
 C:\spark-essentials-master\spark-cluster>docker-compose up --scale spark-worker=3
@@ -329,25 +329,23 @@ In this case, it defines two services: **spark-master** and **spark-worker**, bo
 
 Here's a breakdown of the code:
 
-### Spark-Master Service:
+### 6.2. Spark-Master Service
 
-Image: Specifies the Docker image to be used for the spark-master service, tagged as latest.
+**Image:** Specifies the Docker image to be used for the spark-master service, tagged as latest.
 
-Ports: Maps container ports to host ports. In this case, it exposes ports 4040, 8080, and 7077 on the host.
+**Ports:** Maps container ports to host ports. In this case, it exposes ports 4040, 8080, and 7077 on the host.
 
-Volumes: Mounts host directories ./apps and ./data into the containers at /opt/spark-apps and /opt/spark-data, respectively.
+**Volumes:** Mounts host directories ./apps and ./data into the containers at /opt/spark-apps and /opt/spark-data, respectively.
 
-Environment Variables:
+**Environment Variables:** SPARK_LOCAL_IP, Sets the local IP address for Spark Master to "spark-master".
 
-SPARK_LOCAL_IP: Sets the local IP address for Spark Master to "spark-master".
+### 6.3. Spark-Worker Service
 
-### Spark-Worker Service:
+**Image:** Specifies the Docker image to be used for the spark-worker service, tagged as latest.
 
-Image: Specifies the Docker image to be used for the spark-worker service, tagged as latest.
+**Depends On:** Ensures that the spark-worker service only starts after the spark-master service is up and running.
 
-Depends On: Ensures that the spark-worker service only starts after the spark-master service is up and running.
-
-Environment Variables:
+**Environment Variables:**
 
 SPARK_MASTER: Specifies the Spark Master's address as spark://spark-master:7077.
 
@@ -357,9 +355,9 @@ SPARK_WORKER_MEMORY: Sets the memory allocated for the Spark worker to 1 gigabyt
 
 Other Spark-related environment variables like driver memory and executor memory are also defined.
 
-Volumes: Mounts the same host directories as the spark-master service.
+**Volumes:** Mounts the same host directories as the spark-master service.
 
-### Docker-compose source code
+### 6.4. Docker-compose source code
 
 ```yaml
 version: "3"
@@ -390,7 +388,7 @@ services:
        - ./data:/opt/spark-data
 ```
 
-### Running the docker containers
+### 6.5. Running the docker containers
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/04c11420-9f45-4519-916d-fe7cbef3a51a)
 
@@ -404,9 +402,9 @@ http://localhost:9090/
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/8ceec614-86dc-4283-a5df-bb6c37e0ddda)
 
-### Run your Spark application on the already running Spark Docker containers
+### 6.6. Run your Spark application on the already running Spark Docker containers
 
-**1. Package your Application:**
+**6.6.1. Package your Application:**
 
 Make sure you have your code and build.sbt in a directory.
 
@@ -414,7 +412,7 @@ Use the **sbt package** command to create a **JAR file** for your Spark applicat
 
 The JAR file will be created in the **target/scala-2.13** directory.
 
-**2. Copy JAR to Docker Container:**
+**6.6.2. Copy JAR to Docker Container:**
 
 Copy the JAR file to your Spark Docker container. 
 
@@ -426,7 +424,7 @@ For example:
 docker cp target/scala-2.13/spark-essentials_2.13-0.2.jar CONTAINER_ID:/path/in/container
 ```
 
-**3. Submit Spark Job:**
+**6.6.3. Submit Spark Job:**
 
 Once the JAR is in the container, you can submit the Spark job using the **spark-submit** script. 
 
@@ -436,7 +434,7 @@ docker exec -it CONTAINER_ID /path/to/spark-submit --master spark://045d6cd5b2c6
 
 Make sure to replace CONTAINER_ID, /path/in/container, and /path/to/spark-submit with the actual values.
 
-**4. Check Spark Web UI:**
+**6.6.4. Check Spark Web UI:**
 
 After submitting the job, you can monitor its progress by visiting the Spark Web UI at **http://localhost:9090/** 
 
