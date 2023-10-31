@@ -2,6 +2,15 @@
 
 ## 1. Install Docker Desktop on Windows
 
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/98b7d510-89ee-4b59-98ce-225b94fb70d5)
+
+After donwloading the fie double click on it for intalling Docker Desktop in you computer
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/bfe185e4-4b2f-4508-979d-dd281db9e985)
+
+**IMPORTANT NOTE**: as a prerrequisite to install Docker Desktop we need to enable Windows **Hyper-V** in our laptop
+
+
 
 ## 2. Install IntelliJ Community and install Scala plugin
 
