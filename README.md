@@ -192,6 +192,9 @@ RUN wget --no-verbose https://archive.apache.org/dist/spark/spark-${SPARK_VERSIO
 # Note: this is needed when you use Python 3.3 or greater
 ENV PYTHONHASHSEED 1
 ```
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/f0c7de90-3ccb-4c7f-8d71-d91191bb6474)
+
+#### Dockerfile explanation
 
 This Dockerfile seems to be setting up an environment for running Apache Spark with PySpark support along with Scala and Python. Let's break it down step by step:
 
