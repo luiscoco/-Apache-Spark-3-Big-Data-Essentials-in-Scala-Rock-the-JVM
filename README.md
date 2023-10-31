@@ -390,3 +390,11 @@ services:
        - ./data:/opt/spark-data
 ```
 
+### Running the docker containers
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/04c11420-9f45-4519-916d-fe7cbef3a51a)
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/9542ae0c-5b0b-43c7-88b2-0754795d6684)
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/e12541dc-5cfb-4fd3-97da-4502159af9a0)
+
