@@ -129,5 +129,156 @@ If we expand the new server tree we can see the new database "rtjvm" and tables 
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/7baf7839-d4ac-447e-afe7-958b658f525f)
 
-## 5. 
+## 5. Build the Spark images
+
+Run this command. In summary, this Docker command is building an image named "spark-base" with the tag "latest" using the Dockerfile and resources located in the ./docker/base directory.
+
+```
+docker build -t spark-base:latest ./docker/base
+```
+
+This command is using Docker, a platform for developing, shipping, and running applications in containers. Let me break down the command for you:
+
+**docker build**: This part of the command tells Docker to build an image. An image is a lightweight, standalone, and executable software package that includes everything needed to run a piece of software, including the code, a runtime, libraries, and system tools.
+
+**-t spark-base**:latest: This is an option that allows you to tag the image with a name and optionally a tag. In this case, the image is being tagged as "spark-base" with the tag "latest." The tag is a way to version your images, and "latest" is a commonly used tag to indicate the most recent version.
+
+**./docker/base**: This is the build context. It specifies the location of the Dockerfile and any other files needed for the build. In this case, it points to the base directory under the docker directory.
+
+This is the Dockerfile source code located in "./docker/base" folder.
+
+This Dockerfile essentially creates an environment with **Scala**, **Python**, and **Apache Spark**, configured to work together.
+
+```dockerfile
+FROM eclipse-temurin:17-jdk
+LABEL author="Daniel Ciocirlan" email="daniel@rockthejvm.com"
+LABEL version="0.3"
+
+ENV DAEMON_RUN=true
+ENV SPARK_VERSION=3.5.0
+ENV HADOOP_VERSION=3
+ENV SCALA_VERSION=2.13.12
+ENV SCALA_HOME=/usr/share/scala
+ENV SPARK_HOME=/spark
+
+RUN apt-get update && apt-get install -y curl vim wget software-properties-common ssh net-tools ca-certificates jq dbus-x11
+RUN echo exit 0 > /usr/sbin/policy-rc.d
+
+RUN cd "/tmp" && \
+    wget --no-verbose "https://downloads.typesafe.com/scala/${SCALA_VERSION}/scala-${SCALA_VERSION}.tgz" && \
+    tar xzf "scala-${SCALA_VERSION}.tgz" && \
+    mkdir "${SCALA_HOME}" && \
+    rm "/tmp/scala-${SCALA_VERSION}/bin/"*.bat && \
+    mv "/tmp/scala-${SCALA_VERSION}/bin" "/tmp/scala-${SCALA_VERSION}/lib" "${SCALA_HOME}" && \
+    ln -s "${SCALA_HOME}/bin/"* "/usr/bin/" && \
+    rm -rf "/tmp/"*
+
+# Add Dependencies for PySpark
+RUN apt-get install -y python3 python3-pip python3-numpy python3-matplotlib python3-scipy python3-pandas python3-simpy
+RUN update-alternatives --install "/usr/bin/python" "python" "$(which python3)" 1
+
+#Scala instalation
+RUN export PATH="/usr/local/sbt/bin:$PATH" &&  apt update && apt install ca-certificates wget tar && mkdir -p "/usr/local/sbt" && wget -qO - --no-check-certificate "https://github.com/sbt/sbt/releases/download/v1.9.6/sbt-1.9.6.tgz" | tar xz -C /usr/local/sbt --strip-components=1 && sbt sbtVersion -Dsbt.rootdir=true
+
+RUN wget --no-verbose https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && tar -xvzf spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
+      && mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark \
+      && rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
+
+
+
+# Fix the value of PYTHONHASHSEED
+# Note: this is needed when you use Python 3.3 or greater
+ENV PYTHONHASHSEED 1
+```
+
+This Dockerfile seems to be setting up an environment for running Apache Spark with PySpark support along with Scala and Python. Let's break it down step by step:
+
+**Base Image**: It starts with a base image based on the Eclipse Temurin JDK version 17.
+
+```
+FROM eclipse-temurin:17-jdk
+```
+
+**Labels**: These are metadata labels providing information about the image, such as author and version.
+
+...
+LABEL author="Daniel Ciocirlan" email="daniel@rockthejvm.com"
+LABEL version="0.3"
+...
+
+**Environment Variables**: These set environment variables used throughout the Dockerfile, such as Spark version, Hadoop version, Scala version, Scala home directory, and Spark home directory.
+
+```
+ENV DAEMON_RUN=true
+ENV SPARK_VERSION=3.5.0
+ENV HADOOP_VERSION=3
+ENV SCALA_VERSION=2.13.12
+ENV SCALA_HOME=/usr/share/scala
+ENV SPARK_HOME=/spark
+```
+
+**System Packages Installation**: This installs various system packages using apt-get.
+
+```
+RUN apt-get update && apt-get install -y curl vim wget software-properties-common ssh net-tools ca-certificates jq dbus-x11
+RUN echo exit 0 > /usr/sbin/policy-rc.d
+```
+
+**Scala Installation**: It downloads and installs Scala, setting up the necessary environment variables and symbolic links
+
+```
+RUN cd "/tmp" && \
+    wget --no-verbose "https://downloads.typesafe.com/scala/${SCALA_VERSION}/scala-${SCALA_VERSION}.tgz" && \
+    tar xzf "scala-${SCALA_VERSION}.tgz" && \
+    # ... (extracting and moving Scala binaries) ...
+    rm -rf "/tmp/"*
+```
+
+**Python and PySpark Dependencies**: Installs Python 3 and some popular scientific libraries, and updates the Python symbolic link
+
+```
+RUN apt-get install -y python3 python3-pip python3-numpy python3-matplotlib python3-scipy python3-pandas python3-simpy
+RUN update-alternatives --install "/usr/bin/python" "python" "$(which python3)" 1
+```
+
+**Scala Build Tool (SBT) Installation**: Downloads and installs SBT (Scala Build Tool)
+
+```
+RUN export PATH="/usr/local/sbt/bin:$PATH" && \
+    apt update && apt install ca-certificates wget tar && \
+    mkdir -p "/usr/local/sbt" && \
+    wget -qO - --no-check-certificate "https://github.com/sbt/sbt/releases/download/v1.9.6/sbt-1.9.6.tgz" | tar xz -C /usr/local/sbt --strip-components=1 && \
+    sbt sbtVersion -Dsbt.rootdir=true
+```
+
+**Apache Spark Installation**: Downloads and installs Apache Spark.
+
+```
+RUN wget --no-verbose https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
+    tar -xvzf spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
+    mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark && \
+    rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
+```
+
+**Python Configuration**:
+
+```
+ENV PYTHONHASHSEED 1
+```
+
+Sets the PYTHONHASHSEED environment variable.
+
+
+
+```
+docker build -t spark-master:latest ./docker/spark-master
+```
+
+```
+docker build -t spark-worker:latest ./docker/spark-worker
+```
+
+```
+docker build -t spark-submit:latest ./docker/spark-submit
+```
 
