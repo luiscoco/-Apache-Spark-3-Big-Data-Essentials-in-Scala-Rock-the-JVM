@@ -400,6 +400,8 @@ services:
 
 We connect to the Master container
 
+http://localhost:9090/
+
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/8ceec614-86dc-4283-a5df-bb6c37e0ddda)
 
 
