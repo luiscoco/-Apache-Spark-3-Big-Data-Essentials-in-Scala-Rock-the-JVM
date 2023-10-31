@@ -398,3 +398,8 @@ services:
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/e12541dc-5cfb-4fd3-97da-4502159af9a0)
 
+We connect to the Master container
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/8ceec614-86dc-4283-a5df-bb6c37e0ddda)
+
+
