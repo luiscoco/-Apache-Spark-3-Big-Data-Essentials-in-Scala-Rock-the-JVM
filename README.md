@@ -307,7 +307,15 @@ W
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/ec911059-bcf5-4ce5-a0b6-66ed771765e0)
 
-## 6. Runnin Spark docker images
+## 6. Running Spark docker images
+
+We run the command:
+
+```
+C:\spark-essentials-master\spark-cluster>docker-compose up --scale spark-worker=3
+```
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/21dd2ace-cb64-4f7b-8121-cc5d26154943)
 
 This configuration is for setting up a Spark cluster with a master (spark-master) and a worker (spark-worker) using Docker Compose. 
 
@@ -351,7 +359,7 @@ Other Spark-related environment variables like driver memory and executor memory
 
 Volumes: Mounts the same host directories as the spark-master service.
 
-### Dcoker-compose source code
+### Docker-compose source code
 
 ```yaml
 version: "3"
