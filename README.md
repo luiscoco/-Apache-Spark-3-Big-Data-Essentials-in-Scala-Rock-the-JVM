@@ -10,7 +10,11 @@ After donwloading the fie double click on it for intalling Docker Desktop in you
 
 **IMPORTANT NOTE**: as a prerrequisite to install Docker Desktop we need to enable Windows **Hyper-V** in our laptop
 
+Hyper-V APIs give users the freedom to build and manage virtual machines or containers at various levels in the virtualization stack.
 
+https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements?source=recommendations
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/d09fd5da-3fef-4040-a71d-5ebd721276f4)
 
 ## 2. Install IntelliJ Community and install Scala plugin
 
