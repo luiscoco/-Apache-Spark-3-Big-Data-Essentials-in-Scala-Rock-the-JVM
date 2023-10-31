@@ -404,4 +404,44 @@ http://localhost:9090/
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/8ceec614-86dc-4283-a5df-bb6c37e0ddda)
 
+### Run your Spark application on the already running Spark Docker containers
 
+**1. Package your Application:**
+
+Make sure you have your code and build.sbt in a directory.
+
+Use the **sbt package** command to create a **JAR file** for your Spark application. 
+
+The JAR file will be created in the **target/scala-2.13** directory.
+
+**2. Copy JAR to Docker Container:**
+
+Copy the JAR file to your Spark Docker container. 
+
+You can use the docker **cp** command for this. 
+
+For example:
+
+```
+docker cp target/scala-2.13/spark-essentials_2.13-0.2.jar CONTAINER_ID:/path/in/container
+```
+
+**3. Submit Spark Job:**
+
+Once the JAR is in the container, you can submit the Spark job using the **spark-submit** script. 
+
+```
+docker exec -it CONTAINER_ID /path/to/spark-submit --master spark://045d6cd5b2c6:7077 --class part2dataframes.DataFramesBasics /path/in/container/spark-essentials_2.13-0.2.jar
+```
+
+Make sure to replace CONTAINER_ID, /path/in/container, and /path/to/spark-submit with the actual values.
+
+**4. Check Spark Web UI:**
+
+After submitting the job, you can monitor its progress by visiting the Spark Web UI at **http://localhost:9090/** 
+
+You should be able to see your application listed there.
+
+Make sure to replace placeholders with actual values, and adjust paths accordingly. 
+
+Also, make sure that Spark's **bin/spark-submit** script is available in your Docker container.
