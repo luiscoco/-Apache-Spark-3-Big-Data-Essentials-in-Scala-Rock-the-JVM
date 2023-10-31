@@ -18,6 +18,9 @@ https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hy
 
 ## 2. Install IntelliJ Community and install Scala plugin
 
+https://www.jetbrains.com/idea/download/?section=windows
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/610e6b2d-1d80-4ee4-a4f1-243fb388d197)
 
 ## 3. Run the PostgreSQL docker-compose file
 
