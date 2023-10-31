@@ -286,7 +286,7 @@ docker build -t spark-master:latest ./docker/spark-master
 
 
 ### 5.3. 
-
+D
 ```
 docker build -t spark-worker:latest ./docker/spark-worker
 ```
@@ -300,4 +300,12 @@ docker build -t spark-submit:latest ./docker/spark-submit
 ```
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/57041a03-ff1a-4909-bbe6-452be38e6271)
+
+### 5.5. Docker images
+
+W
+
+![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/ec911059-bcf5-4ce5-a0b6-66ed771765e0)
+
+## 6. Run the docker images
 
