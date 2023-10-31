@@ -307,5 +307,78 @@ W
 
 ![image](https://github.com/luiscoco/Udemy-Apache-Spark-3-Big-Data-Essentials-in-Scala-Rock-the-JVM/assets/32194879/ec911059-bcf5-4ce5-a0b6-66ed771765e0)
 
-## 6. Run the docker images
+## 6. Runnin Spark docker images
+
+This configuration is for setting up a Spark cluster with a master (spark-master) and a worker (spark-worker) using Docker Compose. 
+
+The depends_on ensures that the spark-worker service only starts after the spark-master service has started. 
+
+The volumes allow sharing directories between the host machine and the containers for storing Spark applications and data.
+
+We define a Docker Compose file, which is used to define and run multi-container Docker applications. 
+
+In this case, it defines two services: **spark-master** and **spark-worker**, both based on Docker images (spark-master:latest and spark-worker:latest, respectively).
+
+Here's a breakdown of the code:
+
+### Spark-Master Service:
+
+Image: Specifies the Docker image to be used for the spark-master service, tagged as latest.
+
+Ports: Maps container ports to host ports. In this case, it exposes ports 4040, 8080, and 7077 on the host.
+
+Volumes: Mounts host directories ./apps and ./data into the containers at /opt/spark-apps and /opt/spark-data, respectively.
+
+Environment Variables:
+
+SPARK_LOCAL_IP: Sets the local IP address for Spark Master to "spark-master".
+
+### Spark-Worker Service:
+
+Image: Specifies the Docker image to be used for the spark-worker service, tagged as latest.
+
+Depends On: Ensures that the spark-worker service only starts after the spark-master service is up and running.
+
+Environment Variables:
+
+SPARK_MASTER: Specifies the Spark Master's address as spark://spark-master:7077.
+
+SPARK_WORKER_CORES: Sets the number of cores for the Spark worker to 1.
+
+SPARK_WORKER_MEMORY: Sets the memory allocated for the Spark worker to 1 gigabyte.
+
+Other Spark-related environment variables like driver memory and executor memory are also defined.
+
+Volumes: Mounts the same host directories as the spark-master service.
+
+### Dcoker-compose source code
+
+```yaml
+version: "3"
+services:
+  spark-master:
+    image: spark-master:latest
+    ports:
+      - "4040:4040"
+      - "9090:8080"
+      - "7077:7077"
+    volumes:
+       - ./apps:/opt/spark-apps
+       - ./data:/opt/spark-data
+    environment:
+      - "SPARK_LOCAL_IP=spark-master"
+  spark-worker:
+    image: spark-worker:latest
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_DRIVER_MEMORY=128m
+      - SPARK_EXECUTOR_MEMORY=256m
+    volumes:
+       - ./apps:/opt/spark-apps
+       - ./data:/opt/spark-data
+```
 
